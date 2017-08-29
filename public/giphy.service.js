@@ -1,6 +1,7 @@
 app.service('GiphyService', ['$http', function($http){
     var self = this;
     var giphyAPIKey = '&api_key=ea316e4919cd497b84c42fa122a3ee80';
+    var offSetter = 0;
     
     self.gotGiphs = { list: [] };
     self.randomGiph = { list: [] };
@@ -19,9 +20,10 @@ app.service('GiphyService', ['$http', function($http){
     };
 
     self.searchGiphy = function (giphTag) {
+        offSetter = 0;
         var baseUrl = 'http://api.giphy.com/v1/gifs/search?';
         //console.log(self.giphTag.tag);
-        baseUrl += '&limit=5&rating=g';
+        baseUrl += '&limit=5&rating=g$offset=0';
         baseUrl += "&q="+giphTag;
         baseUrl += giphyAPIKey;
 
@@ -36,8 +38,6 @@ app.service('GiphyService', ['$http', function($http){
         //?q=ryan+gosling&api_key=YOUR_API_KEY&limit=5"
         // ^All variables meant to request specific parameters
     };
-
-    var offSetter = 0;
 
     self.offsetGiphs = function (giphTag) {
         var baseUrl = 'http://api.giphy.com/v1/gifs/search?';
@@ -54,6 +54,7 @@ app.service('GiphyService', ['$http', function($http){
         });
         //example request:
         //"http://api.giphy.com/v1/gifs/search
+
         //?q=ryan+gosling&api_key=YOUR_API_KEY&limit=5"
         // ^All variables meant to request specific parameters
     };

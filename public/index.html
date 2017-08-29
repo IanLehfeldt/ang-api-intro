@@ -32,15 +32,15 @@
         <h2>Films that Feature {{vm.swapiRequest.name}}</h2>
                 <a href="{{vm.swapiRequest.films[0]}}">{{vm.filmResult.title}}</a>
     </div> -->
-    <br>
     <!-- <p>{{vm.trendingGiphy.data.image_url}}</p> -->
 
-
+    <br>
     <p> <input type="text" ng-model='vm.giphTag.tag'>
         <button ng-click='vm.searchGiphy(vm.giphTag.tag)'>Search Giphy</button><button ng-click="vm.offsetGiphs(vm.giphTag.tag)">Next 5</button>
     </p>
 
     <!-- {{vm.gotGiphs.list.data}} -->
+    <!-- Convuluted object mass we have the giphs array stored in -->
     <div ng-repeat='giph in vm.gotGiphs.list.data'>
          <img ng-src="{{giph.images.downsized.url}}"> 
         <!-- <p>{{giph.images.downsized.url}}</p> -->
