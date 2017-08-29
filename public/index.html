@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src='angular.min.js'></script>
+    <script src='client.js'></script>
+    <script src='giphy.service.js'></script>
+</head>
+
+<body ng-app='myApp' ng-controller="SwapiController as vm">
+
+    <h1>Random Giph API</h1>
+
+    <img ng-src='{{vm.randomGiph.list.data.image_url}}' />
+    <p>
+        <button ng-click='vm.randomGiphy()'>Randomizer!</button>
+    </p>
+
+    <!-- <div>
+        <p>
+        <input type="number" ng-model='vm.speciesId' placeholder='Enter a number'><button ng-click='vm.getSpecies(vm.speciesId)'>Get Species Data</button>
+        </p>
+    </div>
+    <div>
+        <h2>{{vm.swapiRequest.name}}</h2>
+        <h2>Films that Feature {{vm.swapiRequest.name}}</h2>
+                <a href="{{vm.swapiRequest.films[0]}}">{{vm.filmResult.title}}</a>
+    </div> -->
+    <br>
+    <!-- <p>{{vm.trendingGiphy.data.image_url}}</p> -->
+
+
+    <p> <input type="text" ng-model='vm.giphTag.tag'>
+        <button ng-click='vm.searchGiphy(vm.giphTag.tag)'>Search Giphy</button><button ng-click="vm.offsetGiphs(vm.giphTag.tag)">Next 5</button>
+    </p>
+
+    <!-- {{vm.gotGiphs.list.data}} -->
+    <div ng-repeat='giph in vm.gotGiphs.list.data'>
+         <img ng-src="{{giph.images.downsized.url}}"> 
+        <!-- <p>{{giph.images.downsized.url}}</p> -->
+    </div>
+
+</body>
+
+</html>
