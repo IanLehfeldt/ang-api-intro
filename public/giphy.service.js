@@ -1,6 +1,6 @@
 app.service('GiphyService', ['$http', function($http){
     var self = this;
-    var giphyAPIKey = '&api_key=ea316e4919cd497b84c42fa122a3ee80';
+    var giphyAPIKey = '';
     var offSetter = 0;
     
     self.gotGiphs = { list: [] };
